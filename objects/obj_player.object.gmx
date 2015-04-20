@@ -25,37 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hp = 3;
+            <string>hp = 3; // Hitpoints
 hsp = 7;            // speed
 diving = false;
 image_speed = 0.3;
 canshoot = true;
 shooting = false;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// shooting
 
-
+x_offset = 5 // offsets for axe
+y_offset = 10
+// create the axe attached to the player
+my_axe = instance_create(x + x_offset, y + y_offset, obj_axe);  
 
 </string>
           </argument>
@@ -79,101 +59,44 @@ shooting = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Player Movements
+            <string>my_axe.x = x + x_offset;
+my_axe.y = y + y_offset;
 
-var dir, canshoot;
+/// Player Movements
 
-dir = keyboard_check( vk_right ) - keyboard_check( vk_left );
-canshoot = true;
-shooting = false;
-
-// Check if moving
-if( dir != 0 )
-{
-    image_speed = 0.5;
-    shooting = false;
-    canshoot = false;
-    sprite_index = spr_run;
-
-    if( dir &lt; 0 ) // Going left
-        {
-            image_xscale = -1;
-            with (obj_arrow)
-                {
-                    image_xscale = -1;
-                }
-            if( x &gt; 160 ) x -= hsp;
-        }
-    else // Going Right
-        {
-            image_xscale = 1;
-            with (obj_arrow)
-                {
-                    image_xscale = 1;
-                }
-            if( x &lt; 832 ) x += hsp;
-        }
-}
-else // Not moving
-{
-    if (shooting = false)
-        {
-            image_speed = 0.1;
-            sprite_index = spr_player;
-        }
-}
-
-// if  (keyboard_check( vk_space ) &amp;&amp; canshoot)
-// {
-//    image_speed = 0.5;
-//    shooting = true;
-//    sprite_index = spr_shoot;
-// }
-
-if( sprite_index = spr_shoot &amp;&amp; image_index == 5)
-{
-    instance_create( x+10, y-50, obj_arrow );
-}
-
-// if keyboard_check_pressed(vk_space);
-// {
-//   image_speed = 0.5;
-//   shooting = true;
-//   sprite_index = spr_shoot;       
-//    instance_create( x+10, y-50, obj_arrow );
-// vspeed = -8
-// instance_create (x,y-16,obj_testaxe)
-// }
-
-
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>with (obj_testaxe)
-  
-     {
-    obj_textaxe_id = instance_create(x, y, obj_testaxe);
-    instance_destroy();
+if keyboard_check_pressed(vk_left)
+    {
+        sprite_index = spr_run
+        image_xscale = -1;
+        image_speed = 0.5;  
+        x-=3 
     }
+
+if keyboard_check_pressed(vk_right)
+    {
+        sprite_index = spr_run
+        image_xscale = 1;
+        image_speed = 0.5;   
+        x+=3;    
+    }
+
+    
+// SHOOTING
+
+if keyboard_check_pressed(vk_space)
+{
+    sprite_index = spr_shoot;
+    image_speed = 0.5;
+    instance_create( x+10, y-50, obj_arrow )
+}
+
+
+// if (keyboard_check_pressed(vk_alt)) {instance_create(random(room_width),600,obj_powerup)};
+
+// round( x = random_range(1,room_width));
+
+// instance_create(random(room_width),room_height,obj_powerup);
+//     instance_create(x,300,obj_powerup);
 
 
 </string>
@@ -199,31 +122,6 @@ if( sprite_index = spr_shoot &amp;&amp; image_index == 5)
           <argument>
             <kind>1</kind>
             <string>obj_health.image_index += 1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="7">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//if (shooting) shooting = false;
-
-    
 </string>
           </argument>
         </arguments>

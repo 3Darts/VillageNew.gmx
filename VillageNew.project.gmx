@@ -4,7 +4,10 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_powerup</sound>
+    <sound>sound\snd_flameshoot</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_player</sprite>
     <sprite>sprites\spr_shoot</sprite>
@@ -12,6 +15,7 @@
     <sprite>sprites\spr_run</sprite>
     <sprite>sprites\spr_grass</sprite>
     <sprite>sprites\spr_tomahawk</sprite>
+    <sprite>sprites\spr_axe_idle</sprite>
     <sprite>sprites\sprite7</sprite>
     <sprite>sprites\sprite8</sprite>
     <sprite>sprites\spr_enemy</sprite>
@@ -24,6 +28,8 @@
     <sprite>sprites\spr_health</sprite>
     <sprite>sprites\spr_gnome</sprite>
     <sprite>sprites\spr_powerup</sprite>
+    <sprite>sprites\spr_grass2</sprite>
+    <sprite>sprites\sprite19</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\Mountains</background>
@@ -35,7 +41,7 @@
   </paths>
   <objects name="objects">
     <object>objects\obj_player</object>
-    <object>objects\obj_testaxe</object>
+    <object>objects\obj_axe</object>
     <object>objects\obj_arrow</object>
     <object>objects\obj_grass</object>
     <object>objects\obj_enemy</object>
@@ -45,9 +51,11 @@
     <object>objects\obj_health</object>
     <object>objects\obj_villagers_count</object>
     <object>objects\obj_powerup</object>
+    <object>objects\obj_grass2</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room0</room>
+    <room>rooms\rm_main</room>
+    <room>rooms\rrm_title</room>
   </rooms>
   <constants number="2">
     <constant name="GM_build_date">41889.9535041319</constant>
